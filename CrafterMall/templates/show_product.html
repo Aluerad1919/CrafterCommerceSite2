@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_show_product.css' %}">
+    <title>Crafter Mall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Welcome to the Mall of Crafters</h1>
+            <p>
+                <a href="login">log in</a> / <a href="register">Sign Up</a>
+            </p>
+<!-- need to add a cart function -->
+        </header>
+        <nav>
+<!-- Navigation bar 
+            topics: Crafts, Commissions... more to come -->
+            <ul>
+                <li>Sewing</li>
+                <li>Knitting</li>
+                <li>Leather Work</li>
+                <li>Metal Work</li>
+                <li>Digital Art</li>
+            </ul>
+            
+            <!-- Search bar to file through  -->
+            <div class="searchbar">
+                <input type="text" placeholder="Search">
+                <button type="submit">Find</button>
+            </div>
+        </nav>
+        <!-- show the indevidual product -->
+        <div class="craft">
+            <div class="craftImg">
+                <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+            </div>
+            <h3>Product name</h3>
+            <p>{{Description}}</p>
+        </div>
+    </div>
+</body>
+</html>

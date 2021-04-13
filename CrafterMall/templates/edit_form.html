@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_editaddress.css' %}">
+    <title>CrafterMall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Edit Address</h2>
+        <a href="/">Home</a>
+        <a href="/account"></a>
+        <div class="user_info">
+            <a href="/delete/{{the_address.id}}">Delete Address</a>
+            <form action="/edit_address/{{the_address.id}}" method="post">
+                {% csrf_token %}
+                <div class="Names">
+                    <input type="text" name="f_name_input" value="{{the_address.first_name}}">
+                    <input type="text" name="l_name_input" value="{{the_address.last_name}}">
+                </div>
+                <div class="st_location">
+                    <input type="text" name="street_input" value="{{the_address.street_Add}}"> <br>
+                </div>
+                <div class="c_s_z_location">
+                    <input type="text" name="city_input" value="{{the_address.city}}"> <br>
+                    <input type="text" name="state_input" value="{{the_address.state}}"> <br>
+                    <input type="text" name="zip_input" value="{{the_address.zip_code}}">
+                </div>
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_newaddress.css' %}">
+    <title>Crafter Mall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Welcome to the Mall of Crafters</h1>
+            <p>
+                <a href="/CrafterMall/Account/{{logged_user.id}}">Back to Account</a> / <a href="/">Home</a>
+            </p>
+<!-- need to add a cart function -->
+        </header>
+        <div class="user_info">
+            <form action="/add_address" method="post">
+                {% csrf_token %}
+                <div class="Names">
+                    <input type="text" name="f_name_input" placeholder="First Name">
+                    <input type="text" name="l_name_input" placeholder="Last Name">
+                </div>
+                <div class="st_location">
+                    <input type="text" name="street_input" placeholder="Street Address "> <br>
+                </div>
+                <div class="c_s_z_location">
+                    <input type="text" name="city_input" placeholder="City"> <br>
+                    <input type="text" name="state_input" placeholder="State "> <br>
+                    <input type="text" name="zip_input" placeholder="Zip ">
+                </div>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

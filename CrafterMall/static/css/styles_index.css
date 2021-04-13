@@ -1,0 +1,80 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+.wrapper{
+    width: auto;
+    height: auto;
+    padding: 15px;
+    border: solid blue 25px;
+}
+header{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+nav{
+    background-color: rgb(127, 127, 199);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+nav ul{
+    display: flex;
+    padding-left: 8px;
+    list-style-type: none;
+}
+nav ul li{
+    padding-left: 09px;
+    padding-right: 9px;
+    border-right:solid black 1px;
+}
+.user_menu_btn{
+    background-color: blueviolet;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+.user_drop_menu{
+    position: relative;
+    display: inline-block;
+}
+.drop_menu_options{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.drop_menu_options a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.drop_menu_options a:hover {background-color: #ddd;}
+.user_drop_menu:hover .drop_menu_options{display: block;}
+.user_drop_menu:hover .user_menu_btn {background-color: blue;}
+
+.craft{
+    width: 350px;
+    display: flex;
+    border: solid black 5px;
+}
+.craft img{
+    width: auto;
+    height: 100px;
+    padding: 2px;
+}
+footer{
+    background: grey;
+}
+footer ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_login.css' %}">
+    <title>Crafter Mall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Log in  -->
+        <!-- <div class="log">
+            <h1>Log In</h1>
+            <form action="/log" method="post">
+                {% csrf_token %}
+                <p>Username</p>
+                <input type="text" name="username_input">
+                <p>Password</p>
+                <input type="text" name="pw_input"><br>
+                <button type="submit">Log In</button>
+            </form>
+        </div> -->
+        <!-- Register -->
+        <div class="register">
+            <h1>Register</h1>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <p>UserName</p>
+                <input type="text" name="username_input">
+                <p>Email</p>
+                <input type="text" name="email_input">
+                <p>Password</p>
+                <input type="text" name="pw_input">
+                <p>Confirm Password</p>
+                <input type="text" name="confirm_input"><br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+            <div class="or">
+                <!-- <h3>-OR-</h3> -->
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+    </div>
+</body>

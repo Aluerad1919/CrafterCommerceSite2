@@ -1,0 +1,28 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+.wrapper{
+    width: auto;
+    height: auto;
+    padding: 15px;
+    border: solid blue 25px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.address_block{
+    border: black solid 2px;
+    padding: 2px;
+}
+.address_block ul{
+    list-style-type: none;
+    display: flex;
+}
+.single_add{
+    border: solid 2px black;
+    margin: 5px;
+    padding: 2px;
+}

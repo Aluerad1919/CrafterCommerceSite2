@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_show_product.css' %}">
+    <title>Crafter Mall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Add a Product</h1>
+            <p></p>
+<!-- need to add a cart function -->
+        </header>
+        <!-- add a indevidual product -->
+        {{what}}
+        <div class="craftImg">
+            <!-- upload an image -->
+            <form action="add_craft_product" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <img id="myimage" src="xyz">
+                <input name="images" onchange="readURL(this);" type="file" accept="image/*"/>
+          
+                <!-- <button type="submit">Upload</button> -->
+            </form>
+            <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+        </div>
+        <select name="cataorgyProduct" id="">
+            <option value="Textile">Textile</option>
+            <option value="Metal">Metal</option>
+            <option value="Leather">Leather</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Carpentry">Carpentry</option>
+            <option value="Digital">Digital</option>
+        </select>
+        <p> Product name </p>
+        <input type="text" name="newProductName">
+        <p>Price</p>
+        <input type="text" name="newProductPrice">
+        <p>Product Description</p>
+        <textarea name="newProductDesc" id="" cols="30" rows="10"></textarea>
+        <p>Number in Stock</p>
+        <input type="text">
+    </div>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('#myimage').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

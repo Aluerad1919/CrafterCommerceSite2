@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_account.css' %}">
+    <title>Crafter Mall Account</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h2>Account of {{logged_user.user_name}}</h2>
+            <a href="/">Home</a>
+        </header>
+        <!-- user addresses -->
+        <div class="address_block">
+            <h3>Addresses</h3>
+            <ul>
+                {%for item in address_db%}
+                <div class="single_add">
+                    <li>{{item.first_name}} {{item.last_name}}</li>
+                    <li>{{item.street_Add}}</li>
+                    <li>{{item.city}}, {{item.state}} {{item.zip_code}}</li>
+                    <a href="/CrafterMall/edit_address/{{item.id}}">Edit</a>
+                </div>
+                {%endfor%}
+            </ul>
+            <a href='/CrafterMall/Add_Address/{{logged_user.id}}'>Add an Address</a>
+        </div>
+        <!-- latest purchases -->
+        <div class="purchases_block">
+            <h3>Past Purchases</h3>
+        </div>
+        <!-- add latest comments -->
+        <div class="comment_block">
+            <h3>Comment History</h3>
+        </div>
+
+    </div>
+</body>
+</html>

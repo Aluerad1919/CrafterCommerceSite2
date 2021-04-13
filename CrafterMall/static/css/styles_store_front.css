@@ -1,0 +1,27 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+.wrapper{
+    width: auto;
+    height: auto;
+    padding: 15px;
+    border: solid blue 25px;
+}
+.product_display{
+    display: flex;
+    justify-content: space-evenly;
+    border: solid black 2px;
+}
+.product{
+    width: 150px;
+    height: auto;
+    padding: 5px;
+    margin: 3px;
+    border: solid black 2px;
+}
+.craftImg img{
+    width: auto;
+    height: 100px;
+}

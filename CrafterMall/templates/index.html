@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_index.css' %}">
+    <title>Crafter Mall</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Mall of the Crafters</h1>
+            <!-- if logged in show Username with a tag and drop down menu -->
+            {%if logged_user.id > 0 %}
+            <p>Welcome, </p>
+            <div class="user_drop_menu">
+                <button class="user_menu_btn">{{logged_user.user_name}}</button>
+                <div class="drop_menu_options">
+                    <a href="/CrafterMall/Account/{{logged_user.id}}">Account</a>
+                    <a href="/CrafterMall/{{logged_user.id}}/Store_Front">Store Front</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+                {%else%}
+            <form action="log" method="post">
+                {% csrf_token %}
+                <input type="text" name="username_input" placeholder="Username">
+                <input type="password" name="pw_input" placeholder="Password">
+                <button type="submit">Log in</button>
+            </form>
+            <p> <a href="/CrafterMall/Signup">Register</a> </p>
+            {%endif%}
+<!-- need to add a cart function -->
+        </header>
+        <nav>
+<!-- Navigation bar 
+            topics: Crafts, Commissions... more to come -->
+            <ul>
+                <li>Textile</li>
+                <li>Leather Work</li>
+                <li>Metal Work</li>
+                <li>Jewelry</li>
+                <li>Carpentry</li>
+                <li>Digital Art</li>
+            </ul>
+            
+            <!-- Search bar to file through  -->
+            <div class="searchbar">
+                <input type="text" placeholder="Search">
+                <button type="submit">Find</button>
+            </div>
+        </nav>
+
+<!-- main display of the crafts being sold -->
+        <div class="mainBody">
+<!-- Show the latest 6 items posted for sale -->
+            <div class="latestCraft">
+                <h2>Latest Crafts Posted</h2>
+                <div class="craft">
+                    <div class="craftImg">
+                        <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+                        <h3>Product name</h3>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
+                </div>
+            </div>
+            <div class="latestCloth">
+                <h2>Latest Textile Posted</h2>
+                <div class="craft">
+                    <div class="craftImg">
+                        <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+                        <h3>Product name</h3>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
+                </div>
+            </div>
+            <div class="latestLeather">
+                <h2>Latest Leather Posted</h2>
+                <div class="craft">
+                    <div class="craftImg">
+                        <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+                        <h3>Product name</h3>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
+                </div>
+            </div>
+
+<!-- Show the latest 3 crafts posted per crafting category -->
+        </div>
+<!-- the footer -->
+        <footer>
+            <div>
+                <p>copyright tradmark patent information</p>
+            </div>
+            <ul>
+                <li><a href="">twitter</a> </li>
+                <li><a href="">linkedin</a></li>
+                <li><a href="">Facebook</a></li>
+                <li><a href="">Customer Service</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
