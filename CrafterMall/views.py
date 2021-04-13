@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 import bcrypt
-from .forms import *
-from taggit.models import Tag
+# from .forms import *
+# from taggit.models import Tag
 
 
 # ---------------Render pages---------------
@@ -48,7 +48,7 @@ def store_front(request, val):
 def add_product(request, val):
     context={
         'crafter':Users.objects.get(id=val),
-        'tags': Craft.tags.most_common()[:4]
+        # 'tags': Craft.tags.most_common()[:4]
     }
     return render(request, 'add_product.html', context)
 
