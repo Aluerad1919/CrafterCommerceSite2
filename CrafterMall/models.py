@@ -1,5 +1,8 @@
 from django.db import models
 import re
+from taggit.managers import TaggableManager
+
+from django.db.models.fields import CharField
 class Darth_Valid(models.Manager):
     def count_Vald(self, postData):
         errors = {}
@@ -43,14 +46,20 @@ class Address(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class Craft(models.Model):
-    seller = models.ForeignKey(Users, related_name="crafter", on_delete = models.CASCADE)
     item_title = models.CharField(max_length=45)
     description = models.TextField()
     craft_type = models.CharField(max_length=45)
-    craft_image = models.ImageField(null=True, blank=True, upload_to='user_images/')
-    # descriptionTag tags to be searched by
-    created_date = models.DateField()
-    num = models.IntegerField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='user_images')
     price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="crafter", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+# class Keytags(models.Model):
+#     craft_word = models.CharField(max_length=20)
+#     keyword = models.ManyToManyField(Craft, related_name='tag')
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)

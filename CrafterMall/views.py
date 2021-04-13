@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
 import bcrypt
+from .forms import *
+from taggit.models import Tag
 
 
 # ---------------Render pages---------------
@@ -42,9 +44,11 @@ def store_front(request, val):
         return render(request, 'open_store.html', context)
     else:
         return render(request, 'store_front.html', context)
+
 def add_product(request, val):
     context={
-        'crafter':Users.objects.get(id=val)
+        'crafter':Users.objects.get(id=val),
+        'tags': Craft.tags.most_common()[:4]
     }
     return render(request, 'add_product.html', context)
 
@@ -156,4 +160,17 @@ def opening_store(request, val):
         clerk.has_store = True
         clerk.store_name = request.POST['st_name_input']
         clerk.save()
+    return redirect(store_front, request.session['userid'])
+
+def post_new_product (request, val):
+    # errors
+    Craft.objects.create(
+        item_title = request.POST[''],
+        description = request.POST[''],
+        craft_type = request.POST[''],
+        craft_image = request.POST[''],
+        price = request.POST['']
+    )
+    # if ():
+    # # else error
     return redirect(store_front, request.session['userid'])
