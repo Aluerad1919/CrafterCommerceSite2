@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+
     <link rel="stylesheet" href="{% static 'css/styles_store_front.css' %}">
     <title>CrafterMall</title>
 </head>
@@ -15,15 +16,16 @@
             <a href="/">Back to the Mall</a>
         </header>
         <div class="product_display">
-            
+            {% for craft in stock_db %}
             <div class="product">
                 <div class="craftImg">
-                    <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
-                    <h3>Product name</h3>
+                    <img src="{{MEDIA_URL}}{{craft.craft_image}}" alt="Broken image">
+                    <h3>{{craft.item_title}}</h3>
+
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
+                <p>{{craft.description}}</p>
             </div>
-            
+            {% endfor %}
         </div>
         <!-- if user's is on own page -->
         {%if logged_user == shop_stall.id %}

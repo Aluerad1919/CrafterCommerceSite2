@@ -38,7 +38,8 @@ def store_front(request, val):
     clerk = Users.objects.get(id=val)
     context = {
         'shop_stall': Users.objects.get(id=val),
-        'logged_user': request.session['userid']
+        'logged_user': request.session['userid'],
+        'stock_db': Craft.objects.filter(seller=Users.objects.get(id=val))
     }
     if(clerk.has_store == False):
         return render(request, 'open_store.html', context)
