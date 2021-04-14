@@ -162,15 +162,22 @@ def opening_store(request, val):
         clerk.save()
     return redirect(store_front, request.session['userid'])
 
-def post_new_product (request, val):
+def post_new_product (request):
     # errors
-    Craft.objects.create(
-        item_title = request.POST[''],
-        description = request.POST[''],
-        craft_type = request.POST[''],
-        craft_image = request.POST[''],
-        price = request.POST['']
+    newcraft = Craft.objects.create(
+        item_title = request.POST['prod_name'],
+        craft_type = request.POST['prod_cat'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
     )
-    # if ():
-    # # else error
+    if (request.POST['stock_amount'] != 0 ):
+        inv = Craft.objects.get(id = newcraft.id)
+        inv.in_stock_num = request.POST['stock_amount']
+        inv.save()
+    elif (request.POST['made2order'] != True):
+        inv = Craft.objects.get(id = newcraft.id)
+        inv.on_order = True
+        inv.save()
     return redirect(store_front, request.session['userid'])
