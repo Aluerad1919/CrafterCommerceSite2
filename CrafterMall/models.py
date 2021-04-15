@@ -58,7 +58,7 @@ class Craft(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
-       return self.name + ": " + str(self.imagefile)
+      return self.name + ": " + str(self.imagefile)
 # class Keytags(models.Model):
 #     craft_word = models.CharField(max_length=20)
 #     keyword = models.ManyToManyField(Craft, related_name='tag')

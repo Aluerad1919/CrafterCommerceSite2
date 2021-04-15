@@ -173,11 +173,11 @@ def post_new_product (request):
         price = request.POST['prod_price'],
         seller = Users.objects.get(id= request.session['userid'])
     )
-    if (request.POST['stock_amount'] != 0 ):
+    if (request.POST['stock_amount'] != '' ):
         inv = Craft.objects.get(id = newcraft.id)
         inv.in_stock_num = request.POST['stock_amount']
         inv.save()
-    elif (request.POST['made2order'] != True):
+    elif (request.POST['made2order'] == True):
         inv = Craft.objects.get(id = newcraft.id)
         inv.on_order = True
         inv.save()
