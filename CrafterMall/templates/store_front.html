@@ -15,7 +15,7 @@
             <h1>{{shop_stall.store_name}}</h1>
             <a href="/">Back to the Mall</a>
         </header>
-        
+
         <div class="product_type">
             {% for type in stock_db%}
             <h4>{{type.craft_type}}</h4>
@@ -27,7 +27,7 @@
                                     <img src="{{MEDIA_URL}}{{craft.craft_image}}" alt="Broken image">
                                 </div>
                                 <div class="title_price">
-                                    <h3>{{craft.item_title}}</h3>
+                                    <h3>{{craft.craft_name}}</h3>
                                     <h4>${{craft.price}}</h4>
                                 </div>
                 
@@ -36,6 +36,7 @@
                                 </div>
                                 {%if logged_user == shop_stall.id %}
                                     <a href="">Edit</a>
+                                    <a href="/delete_craft/{{craft.id}}">delete</a>
                                 {% endif %}
                             </div>
                         {%endif%}

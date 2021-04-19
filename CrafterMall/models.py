@@ -45,22 +45,80 @@ class Address(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class Craft(models.Model):
-    item_title = models.CharField(max_length=45)
-    craft_type = models.CharField(max_length=45)
-    description = models.TextField()
-    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
-    # tags = TaggableManager() <--future content with search engine
-    seller = models.ForeignKey(Users, related_name="crafter", on_delete = models.CASCADE)
-    in_stock_num = models.IntegerField(default=0)
-    on_order = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    def __str__(self):
-      return self.name + ": " + str(self.imagefile)
 # class Keytags(models.Model):
 #     craft_word = models.CharField(max_length=20)
 #     keyword = models.ManyToManyField(Craft, related_name='tag')
 #     created_at = models.DateTimeField(auto_now_add=True)
 #     updated_at = models.DateTimeField(auto_now=True)
+
+class Textile_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="tailor", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Leather_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="leatherworker", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Metal_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="smith", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Wood_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="carpenter", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Jewelry_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="jeweler", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Digital_Craft(models.Model):
+    craft_name = models.CharField(max_length=45, default = ' ')
+    description = models.TextField()
+    craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    # tags = TaggableManager() <--future content with search engine
+    seller = models.ForeignKey(Users, related_name="artist", on_delete = models.CASCADE)
+    in_stock_num = models.IntegerField(default=0)
+    on_order = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

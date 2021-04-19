@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
@@ -36,10 +37,19 @@ def address_form(request, val):
 
 def store_front(request, val):
     clerk = Users.objects.get(id=val)
+    # stock = Craft.objects.filter(seller=clerk)
+    # type_list =[]
+    # for i in stock:
+    #     # print(stock.craft_type)
+    # #     if((i) not in type_list):
+    # #         type_list.append(i)
+    # print("list of types",type_list)
     context = {
         'shop_stall': Users.objects.get(id=val),
         'logged_user': request.session['userid'],
-        'stock_db': Craft.objects.filter(seller=Users.objects.get(id=val))
+        # 'stock_db': Craft.objects.filter(seller=Users.objects.get(id=val)),
+        # 'craft_db':Craft.objects.all(),
+        # 'product_list':type_list
     }
     if(clerk.has_store == False):
         return render(request, 'open_store.html', context)
@@ -164,21 +174,114 @@ def opening_store(request, val):
     return redirect(store_front, request.session['userid'])
 
 def post_new_product (request):
+    # First Priority when reformatting for effeciticy. Right now just getting it to work.
     # errors
-    newcraft = Craft.objects.create(
-        item_title = request.POST['prod_name'],
-        craft_type = request.POST['prod_cat'],
+    if(request.POST['prod_cat'] == 'Textile_Craft'):
+        newcraft = Textile_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
         description = request.POST['prod_desc'],
         craft_image = request.FILES['craft_img'],
         price = request.POST['prod_price'],
         seller = Users.objects.get(id= request.session['userid'])
-    )
-    if (request.POST['stock_amount'] != '' ):
-        inv = Craft.objects.get(id = newcraft.id)
-        inv.in_stock_num = request.POST['stock_amount']
-        inv.save()
-    elif (request.POST['made2order'] == True):
-        inv = Craft.objects.get(id = newcraft.id)
-        inv.on_order = True
-        inv.save()
-    return redirect(store_front, request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Textile_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Textile_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+    if(request.POST['prod_cat'] == 'Leather_Craft'):
+        newcraft = Leather_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Leather_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Leather_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+    if(request.POST['prod_cat'] == 'Metal_Craft'):
+        newcraft = Metal_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Metal_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Metal_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+    if(request.POST['prod_cat'] == 'Wood_Craft'):
+        newcraft = Wood_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Wood_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Wood_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+    if(request.POST['prod_cat'] == 'Jewelry_Craft'):
+        newcraft = Jewelry_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Jewelry_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Jewelry_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+    if(request.POST['prod_cat'] == 'Digital_Craft'):
+        newcraft = Digital_Craft.objects.create(
+        craft_name = request.POST['prod_name'],
+        description = request.POST['prod_desc'],
+        craft_image = request.FILES['craft_img'],
+        price = request.POST['prod_price'],
+        seller = Users.objects.get(id= request.session['userid'])
+        )
+        if (request.POST['stock_amount'] != '' ):
+            inv = Digital_Craft.objects.get(id = newcraft.id)
+            inv.in_stock_num = request.POST['stock_amount']
+            inv.save()
+        elif (request.POST['made2order'] == True):
+            inv = Digital_Craft.objects.get(id = newcraft.id)
+            inv.on_order = True
+            inv.save()
+        return redirect(store_front, request.session['userid'])
+
+def delete_craft(request, val):
+    # temp change while reworking product models
+    craft = Users.objects.get(id=val)
+    craft.delete()
+    craft.save()
+    return redirect(store_front, request.session['userid']) 

@@ -19,6 +19,7 @@ urlpatterns = [
     # User Store Paths
     path('CrafterMall/<int:val>/Store_Front', views.store_front, name='store_front'),
     path('opening_store/<int:val>', views.opening_store),
-    path('CrafterMall/<int:val>/Add_a_Craft', views.add_product),
+    path('CrafterMall/<int:val>/Add_a_Craft', views.add_product, name='add_prod'),
     path('add_craft_product', views.post_new_product),
-]
+    path('delete_craft/<int:val>', views.delete_craft),
+]   
