@@ -63,6 +63,11 @@ nav ul li{
     display: flex;
     justify-content: space-evenly;
 }
+.mainBody h2{
+    text-align: center;
+    background-color: rgb(20, 124, 221);
+}
+
 .craft{
     width: 250px;
     display: flex;
