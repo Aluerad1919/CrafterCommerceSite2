@@ -55,7 +55,7 @@ class Textile_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="tailor", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
@@ -67,7 +67,7 @@ class Leather_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="leatherworker", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
@@ -79,7 +79,7 @@ class Metal_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="smith", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
@@ -91,7 +91,7 @@ class Wood_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="carpenter", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
@@ -115,7 +115,7 @@ class Digital_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="artist", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)

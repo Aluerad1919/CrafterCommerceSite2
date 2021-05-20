@@ -253,7 +253,7 @@ def post_new_product (request):
             inv = Wood_Craft.objects.get(id = newcraft.id)
             inv.in_stock_num = request.POST['stock_amount']
             inv.save()
-        elif (request.POST['made2order'] == True):
+        elif (request.POST['made2order'] == "True"):
             inv = Wood_Craft.objects.get(id = newcraft.id)
             inv.on_order = True
             inv.save()
@@ -289,7 +289,7 @@ def post_new_product (request):
             inv = Digital_Craft.objects.get(id = newcraft.id)
             inv.in_stock_num = request.POST['stock_amount']
             inv.save()
-        elif (request.POST['made2order'] == True):
+        elif (request.POST['made2order'] == "True"):
             inv = Digital_Craft.objects.get(id = newcraft.id)
             inv.on_order = True
             inv.save()

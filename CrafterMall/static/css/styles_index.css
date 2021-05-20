@@ -59,13 +59,20 @@ nav ul li{
 .user_drop_menu:hover .drop_menu_options{display: block;}
 .user_drop_menu:hover .user_menu_btn {background-color: blue;}
 
+.display_product{
+    display: flex;
+    justify-content: space-evenly;
+}
 .craft{
-    width: 350px;
+    width: 250px;
     display: flex;
     border: solid black 5px;
 }
-.craft img{
-    width: auto;
+.craftImg h3{
+    text-align: center;
+}
+.craftImg img{
+    width: 100px;
     height: 100px;
     padding: 2px;
 }

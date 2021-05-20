@@ -38,12 +38,12 @@
 <!-- Navigation bar 
             topics: Crafts, Commissions... more to come -->
             <ul>
-                <li>Textile</li>
-                <li>Leather Work</li>
-                <li>Metal Work</li>
-                <li>Jewelry</li>
-                <li>Carpentry</li>
-                <li>Digital Art</li>
+                <li><a href="Textile">Textile</a></li>
+                <li><a href="Leather">Leather Work</a></li>
+                <li><a href="Metal">Metal Work</a></li>
+                <li><a href="Jewelry">Jewelry</a></li>
+                <li><a href="Carpentry">Carpentry</a></li>
+                <li><a href="Digital">Digital Art</a></li>
             </ul>
             
             <!-- Search bar to file through  -->
@@ -67,92 +67,153 @@
                 </div>
             </div> -->
             
-            <div class="latestCloth">
-                <h2>Latest Textile Posted</h2>
+            <h2>Latest Textile Posted</h2>
+            <div class="display_product">
                 {%for item in text_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            <p>Made by {{item.seller.user_name}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%else%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
 
-            <div class="latestLeather">
-                <h2>Latest Leather Posted</h2>
+            <h2>Latest Leather Posted</h2>
+            <div class="display_product">
                 {%for item in leather_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            <p>Made by {{item.seller.user_name}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%else%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
 
-            <div class="latestMetal">
-                <h2>Latest Metal Work Posted</h2>
+            <h2>Latest Metal Work Posted</h2>
+            <div class="display_product">
                 {%for item in metal_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            <p>Made by {{item.seller.user_name}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%else%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
 
-            <div class="latestJewelry">
-                <h2>Latest Jewelry Posted</h2>
+            <h2>Latest Jewelry Posted</h2>
+            <div class="display_product">
                 {%for item in jewel_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
+                            <p>Made by {{item.seller.user_name}}</p>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%else%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
 
-            <div class="latestLeather">
-                <h2>Latest Carpentry Posted</h2>
+            <h2>Latest Carpentry Posted</h2>
+            <div class="display_product">
                 {%for item in wood_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
+                            <p>Made by {{item.seller.user_name}}</p>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%else%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
 
-            <div class="latestLeather">
-                <h2>Latest Digital Art Posted</h2>
+            <h2>Latest Digital Art Posted</h2>
+            <div class="display_product">
                 {%for item in digital_db%}
                     <div class="craft">
                         <div class="craftImg">
+                            <h3><a href="">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
-                            <h3>{{item.craft_name}}</h3>
+                            <h3>${{item.price}}</h3>
+                            <p>Made by {{item.seller.user_name}}</p>
                         </div>
-                        <h3>{{item.price}}</h3>
-                        <p>{{item.description}}</p>
-                        <p>{{item.seller.user_name}}</p>
+                        <div class="craft_info">
+                            <p>{{item.description}}</p>
+                            {% if item.in_stock_num != 0 %}
+                            <p>{{item.in_stock_num}} avalible</p>
+                            {%endif%}
+                            {% if item.on_order == True %}
+                            <p>Made to Order</p>
+                            {%endif%}
+                            {%if item.in_stock_num and item.on_order == False%}
+                            <p>Out of Stock</p>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
