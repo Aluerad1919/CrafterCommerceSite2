@@ -103,7 +103,7 @@ class Jewelry_Craft(models.Model):
     craft_name = models.CharField(max_length=45, default = ' ')
     description = models.TextField()
     craft_image = models.ImageField(null=True, blank=True, upload_to='img/')
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
     # tags = TaggableManager() <--future content with search engine
     seller = models.ForeignKey(Users, related_name="jeweler", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)

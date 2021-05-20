@@ -56,7 +56,7 @@
 <!-- main display of the crafts being sold -->
         <div class="mainBody">
 <!-- Show the latest 6 items posted for sale -->
-            <div class="latestCraft">
+            <!-- <div class="latestCraft">
                 <h2>Latest Crafts Posted</h2>
                 <div class="craft">
                     <div class="craftImg">
@@ -65,27 +65,98 @@
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
                 </div>
-            </div>
+            </div> -->
+            
             <div class="latestCloth">
                 <h2>Latest Textile Posted</h2>
-                <div class="craft">
-                    <div class="craftImg">
-                        <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
-                        <h3>Product name</h3>
+                {%for item in text_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
-                </div>
+                {%endfor%}
             </div>
+
             <div class="latestLeather">
                 <h2>Latest Leather Posted</h2>
-                <div class="craft">
-                    <div class="craftImg">
-                        <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
-                        <h3>Product name</h3>
+                {%for item in leather_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ad quae libero minus provident aliquam dolore quidem cupiditate excepturi, quasi reiciendis voluptatibus voluptate velit repellat facilis nihil voluptatum nisi accusantium.</p>
-                </div>
+                {%endfor%}
             </div>
+
+            <div class="latestMetal">
+                <h2>Latest Metal Work Posted</h2>
+                {%for item in metal_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
+                    </div>
+                {%endfor%}
+            </div>
+
+            <div class="latestJewelry">
+                <h2>Latest Jewelry Posted</h2>
+                {%for item in jewel_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
+                    </div>
+                {%endfor%}
+            </div>
+
+            <div class="latestLeather">
+                <h2>Latest Carpentry Posted</h2>
+                {%for item in wood_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
+                    </div>
+                {%endfor%}
+            </div>
+
+            <div class="latestLeather">
+                <h2>Latest Digital Art Posted</h2>
+                {%for item in digital_db%}
+                    <div class="craft">
+                        <div class="craftImg">
+                            <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                            <h3>{{item.craft_name}}</h3>
+                        </div>
+                        <h3>{{item.price}}</h3>
+                        <p>{{item.description}}</p>
+                        <p>{{item.seller.user_name}}</p>
+                    </div>
+                {%endfor%}
+            </div>
+
 
 <!-- Show the latest 3 crafts posted per crafting category -->
         </div>

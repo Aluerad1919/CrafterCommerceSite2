@@ -21,5 +21,10 @@ urlpatterns = [
     path('opening_store/<int:val>', views.opening_store),
     path('CrafterMall/<int:val>/Add_a_Craft', views.add_product, name='add_prod'),
     path('add_craft_product', views.post_new_product),
-    path('delete_craft/<int:val>', views.delete_craft),
+    path('delete_cloth/<int:val>', views.delete_cloth),
+    path('delete_leather/<int:val>', views.delete_leather),
+    path('delete_metal/<int:val>', views.delete_metal),
+    path('delete_wood/<int:val>', views.delete_wood),
+    path('delete_jewel/<int:val>', views.delete_jewel),
+    path('delete_digi/<int:val>', views.delete_digi),
 ]   

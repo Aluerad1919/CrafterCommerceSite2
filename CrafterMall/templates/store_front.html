@@ -17,33 +17,143 @@
         </header>
 
         <div class="product_type">
-            {% for type in stock_db%}
-            <h4>{{type.craft_type}}</h4>
-                {% for craft in stock_db %}
-                    <div class="product_display">
-                        {%if type.craft_type == craft.craft_type%}
-                            <div class="product">
-                                <div class="craftImg">
-                                    <img src="{{MEDIA_URL}}{{craft.craft_image}}" alt="Broken image">
-                                </div>
-                                <div class="title_price">
-                                    <h3>{{craft.craft_name}}</h3>
-                                    <h4>${{craft.price}}</h4>
-                                </div>
-                
-                                <div class="desc_block"> 
-                                    <p>{{craft.description}}</p> 
-                                </div>
-                                {%if logged_user == shop_stall.id %}
-                                    <a href="">Edit</a>
-                                    <a href="/delete_craft/{{craft.id}}">delete</a>
-                                {% endif %}
-                            </div>
-                        {%endif%}
+            <h4>Textile</h4>
+            {% for item in cloth_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                     </div>
-                {% endfor %}
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+    
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_cloth/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
             {% endfor %}
         </div>
+        
+        <div class="product_type">
+            <h4>Leather</h4>
+            {% for item in leather_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                    </div>
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+    
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_leather/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="product_type">
+            <h4>metal</h4>
+            {% for item in metal_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                    </div>
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+    
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_metal/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="product_type">
+            <h4>Carpentry</h4>
+            {% for item in wood_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                    </div>
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+                    <h4>{{item.id}}</h4>
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_wood/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="product_type">
+            <h4>Jewelry</h4>
+            {% for item in jewel_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                    </div>
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+    
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_jewel/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="product_type">
+            <h4>Digital Art</h4>
+            {% for item in digi_db %}
+                <div class="product">
+                    <div class="craftImg">
+                        <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
+                    </div>
+                    <div class="title_price">
+                        <h3>{{item.craft_name}}</h3>
+                        <h4>${{item.price}}</h4>
+                    </div>
+    
+                    <div class="desc_block"> 
+                        <p>{{item.description}}</p> 
+                    </div>
+                    {%if logged_user == shop_stall.id %}
+                        <a href="">Edit</a>
+                        <a href="/delete_digi/{{item.id}}">delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
         <!-- if user's is on own page -->
         {%if logged_user == shop_stall.id %}
         <!-- <a href="">edit</a> -->

@@ -9,13 +9,27 @@ import bcrypt
 
 # ---------------Render pages---------------
 def index(request):
+    context ={
+        'text_db': Textile_Craft.objects.all(),
+        'wood_db': Wood_Craft.objects.all(),
+        'metal_db' : Metal_Craft.objects.all(),
+        'leather_db' : Leather_Craft.objects.all(),
+        'jewel_db' : Jewelry_Craft.objects.all(),
+        'digital_db' : Digital_Craft.objects.all(),
+        }
     if('userid' not in request.session):
         print("not logged")
-        return render(request, 'index.html')
+        return render(request, 'index.html', context)
     else:
         print("logged in")
         context={
-            'logged_user': Users.objects.get(id=request.session['userid'])
+            'logged_user': Users.objects.get(id=request.session['userid']),
+            'text_db': Textile_Craft.objects.all(),
+            'wood_db': Wood_Craft.objects.all(),
+            'metal_db' : Metal_Craft.objects.all(),
+            'leather_db' : Leather_Craft.objects.all(),
+            'jewel_db' : Jewelry_Craft.objects.all(),
+            'digital_db' : Digital_Craft.objects.all(),
         }
         return render(request, 'index.html', context)
 
@@ -37,19 +51,15 @@ def address_form(request, val):
 
 def store_front(request, val):
     clerk = Users.objects.get(id=val)
-    # stock = Craft.objects.filter(seller=clerk)
-    # type_list =[]
-    # for i in stock:
-    #     # print(stock.craft_type)
-    # #     if((i) not in type_list):
-    # #         type_list.append(i)
-    # print("list of types",type_list)
     context = {
         'shop_stall': Users.objects.get(id=val),
         'logged_user': request.session['userid'],
-        # 'stock_db': Craft.objects.filter(seller=Users.objects.get(id=val)),
-        # 'craft_db':Craft.objects.all(),
-        # 'product_list':type_list
+        'cloth_db': Textile_Craft.objects.filter(seller=Users.objects.get(id=val)),
+        'leather_db': Leather_Craft.objects.filter(seller=Users.objects.get(id=val)),
+        'metal_db': Metal_Craft.objects.filter(seller=Users.objects.get(id=val)),
+        'wood_db': Wood_Craft.objects.filter(seller=Users.objects.get(id=val)),
+        'jewel_db': Jewelry_Craft.objects.filter(seller=Users.objects.get(id=val)),
+        'digi_db': Digital_Craft.objects.filter(seller=Users.objects.get(id=val)),
     }
     if(clerk.has_store == False):
         return render(request, 'open_store.html', context)
@@ -176,6 +186,7 @@ def opening_store(request, val):
 def post_new_product (request):
     # First Priority when reformatting for effeciticy. Right now just getting it to work.
     # errors
+
     if(request.POST['prod_cat'] == 'Textile_Craft'):
         newcraft = Textile_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -193,6 +204,7 @@ def post_new_product (request):
             inv.on_order = True
             inv.save()
         return redirect(store_front, request.session['userid'])
+        # Add a Leather Product -------------------------------
     if(request.POST['prod_cat'] == 'Leather_Craft'):
         newcraft = Leather_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -210,6 +222,7 @@ def post_new_product (request):
             inv.on_order = True
             inv.save()
         return redirect(store_front, request.session['userid'])
+# Add a metal product ----------------------------
     if(request.POST['prod_cat'] == 'Metal_Craft'):
         newcraft = Metal_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -227,6 +240,7 @@ def post_new_product (request):
             inv.on_order = True
             inv.save()
         return redirect(store_front, request.session['userid'])
+# Add Carpenty product---------------------
     if(request.POST['prod_cat'] == 'Wood_Craft'):
         newcraft = Wood_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -244,6 +258,7 @@ def post_new_product (request):
             inv.on_order = True
             inv.save()
         return redirect(store_front, request.session['userid'])
+# Add a jewelry product ------------------------------
     if(request.POST['prod_cat'] == 'Jewelry_Craft'):
         newcraft = Jewelry_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -261,6 +276,7 @@ def post_new_product (request):
             inv.on_order = True
             inv.save()
         return redirect(store_front, request.session['userid'])
+        # New Digital product---------------------------
     if(request.POST['prod_cat'] == 'Digital_Craft'):
         newcraft = Digital_Craft.objects.create(
         craft_name = request.POST['prod_name'],
@@ -279,9 +295,34 @@ def post_new_product (request):
             inv.save()
         return redirect(store_front, request.session['userid'])
 
-def delete_craft(request, val):
-    # temp change while reworking product models
-    craft = Users.objects.get(id=val)
-    craft.delete()
-    craft.save()
+# part of brute forcing decently organized store front.
+def delete_cloth(request, val):
+    c = Textile_Craft.objects.get(id=val)
+    c.delete()
     return redirect(store_front, request.session['userid']) 
+
+def delete_leather(request, val):
+    craft = Leather_Craft.objects.get(id=val)
+    craft.delete()
+    return redirect(store_front, request.session['userid']) 
+
+def delete_metal(request, val):
+    craft = Metal_Craft.objects.get(id=val)
+    craft.delete()
+    return redirect(store_front, request.session['userid']) 
+
+def delete_wood(request, val):
+    craft = Wood_Craft.objects.get(id=val)
+    craft.delete()
+    return redirect(store_front, request.session['userid']) 
+
+def delete_jewel(request, val):
+    craft = Jewelry_Craft.objects.get(id=val)
+    craft.delete()
+    return redirect(store_front, request.session['userid']) 
+    
+def delete_digi(request, val):
+    craft = Digital_Craft.objects.get(id=val)
+    craft.delete()
+    return redirect(store_front, request.session['userid']) 
+    
