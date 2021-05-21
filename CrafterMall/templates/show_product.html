@@ -11,21 +11,39 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1>Welcome to the Mall of Crafters</h1>
-            <p>
-                <a href="login">log in</a> / <a href="register">Sign Up</a>
-            </p>
+            <h1>Mall of the Crafters</h1>
+            <!-- if logged in show Username with a tag and drop down menu -->
+            {%if logged_user.id > 0 %}
+            <p>Welcome, </p>
+            <div class="user_drop_menu">
+                <button class="user_menu_btn">{{logged_user.user_name}}</button>
+                <div class="drop_menu_options">
+                    <a href="/CrafterMall/Account/{{logged_user.id}}">Account</a>
+                    <a href="/CrafterMall/{{logged_user.id}}/Store_Front">Store Front</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+                {%else%}
+            <form action="log" method="post">
+                {% csrf_token %}
+                <input type="text" name="username_input" placeholder="Username">
+                <input type="password" name="pw_input" placeholder="Password">
+                <button type="submit">Log in</button>
+            </form>
+            <p> <a href="/CrafterMall/Signup">Register</a> </p>
+            {%endif%}
 <!-- need to add a cart function -->
         </header>
         <nav>
 <!-- Navigation bar 
             topics: Crafts, Commissions... more to come -->
             <ul>
-                <li>Sewing</li>
-                <li>Knitting</li>
-                <li>Leather Work</li>
-                <li>Metal Work</li>
-                <li>Digital Art</li>
+                <li><a href="Textile">Textile</a></li>
+                <li><a href="Leather">Leather Work</a></li>
+                <li><a href="Metal">Metal Work</a></li>
+                <li><a href="Jewelry">Jewelry</a></li>
+                <li><a href="Carpentry">Carpentry</a></li>
+                <li><a href="Digital">Digital Art</a></li>
             </ul>
             
             <!-- Search bar to file through  -->
@@ -37,10 +55,10 @@
         <!-- show the indevidual product -->
         <div class="craft">
             <div class="craftImg">
-                <img src="{% static 'img/Sample_image.jpg'%}" alt="Broken image">
+                <img src="{{MEDIA_URL}}{{details.craft_image}}" alt="Broken image">
             </div>
-            <h3>Product name</h3>
-            <p>{{Description}}</p>
+            <h3>{{details.craft_name}}</h3>
+            <p>{{details.description}}</p>
         </div>
     </div>
 </body>

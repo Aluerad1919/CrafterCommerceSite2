@@ -73,6 +73,14 @@ def add_product(request, val):
     }
     return render(request, 'add_product.html', context)
 
+def show_product(request, mats, val):
+    # print(mats)
+    if mats == "Textile_Craft":
+        context ={
+            'details': Textile_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
+    return render(request, 'show_product.html', context)
 # -----------User account logic----------- 
 def add_address(request):
     # errors

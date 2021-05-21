@@ -27,4 +27,5 @@ urlpatterns = [
     path('delete_wood/<int:val>', views.delete_wood),
     path('delete_jewel/<int:val>', views.delete_jewel),
     path('delete_digi/<int:val>', views.delete_digi),
+    path('show_product/<str:mats>/<int:val>', views.show_product),
 ]   

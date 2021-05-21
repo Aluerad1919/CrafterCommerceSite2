@@ -67,12 +67,12 @@
                 </div>
             </div> -->
             
-            <h2>Latest Textile Posted</h2>
+            <h2>Textile</h2>
             <div class="display_product">
                 {%for item in text_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                         </div>
@@ -92,12 +92,12 @@
                 {%endfor%}
             </div>
 
-            <h2>Latest Leather Posted</h2>
+            <h2>Leather</h2>
             <div class="display_product">
                 {%for item in leather_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                         </div>
@@ -117,12 +117,12 @@
                 {%endfor%}
             </div>
 
-            <h2>Latest Metal Work Posted</h2>
+            <h2>Metal Work</h2>
             <div class="display_product">
                 {%for item in metal_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                         </div>
@@ -142,12 +142,12 @@
                 {%endfor%}
             </div>
 
-            <h2>Latest Jewelry Posted</h2>
+            <h2>Jewelry</h2>
             <div class="display_product">
                 {%for item in jewel_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                             <p>Made by {{item.seller.user_name}}</p>
@@ -167,12 +167,12 @@
                 {%endfor%}
             </div>
 
-            <h2>Latest Carpentry Posted</h2>
+            <h2>Carpentry</h2>
             <div class="display_product">
                 {%for item in wood_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                             <p>Made by {{item.seller.user_name}}</p>
@@ -192,12 +192,12 @@
                 {%endfor%}
             </div>
 
-            <h2>Latest Digital Art Posted</h2>
+            <h2>Digital Art</h2>
             <div class="display_product">
                 {%for item in digital_db%}
                     <div class="craft">
                         <div class="craftImg">
-                            <h3><a href="">{{item.craft_name}}</a></h3>
+                            <h3><a href="/show_product/{{item.material}}/{{item.id}}">{{item.craft_name}}</a></h3>
                             <img src="{{MEDIA_URL}}{{item.craft_image}}" alt="Broken image">
                             <h3>${{item.price}}</h3>
                             <p>Made by {{item.seller.user_name}}</p>

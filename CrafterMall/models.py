@@ -60,6 +60,7 @@ class Textile_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="tailor", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Textile_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -72,6 +73,7 @@ class Leather_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="leatherworker", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Leather_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -84,6 +86,7 @@ class Metal_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="smith", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Metal_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -96,6 +99,7 @@ class Wood_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="carpenter", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Wood_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -108,6 +112,7 @@ class Jewelry_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="jeweler", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Jewelry_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -120,5 +125,6 @@ class Digital_Craft(models.Model):
     seller = models.ForeignKey(Users, related_name="artist", on_delete = models.CASCADE)
     in_stock_num = models.IntegerField(default=0)
     on_order = models.BooleanField(default=False)
+    material = models.CharField(max_length=45,default='Digital_Craft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
