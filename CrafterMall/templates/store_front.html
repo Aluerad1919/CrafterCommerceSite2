@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'css/styles_store_front.css' %}">
-    <title>CrafterMall</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles_show_product.css' %}">
+{%block content%}
     <div class="wrapper">
         <header>
             <h1>{{shop_stall.store_name}}</h1>
@@ -164,5 +156,4 @@
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos eaque ipsum nostrum tenetur corporis. Nemo ipsam, culpa debitis enim dicta sapiente suscipit consequatur ex nisi voluptatibus. Ab quas perspiciatis velit!</p>
         </div>
     </div>
-</body>
-</html>
+{%endblock%}

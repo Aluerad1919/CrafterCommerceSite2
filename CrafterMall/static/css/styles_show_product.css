@@ -63,3 +63,11 @@ nav ul li{
     display: flex;
     justify-content: space-evenly;
 }
+.craft{
+    display: flex;
+    justify-content: space-between;
+}
+.craftImg img{
+    width: 200px;
+    height: auto;
+}

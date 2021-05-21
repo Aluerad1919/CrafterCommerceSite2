@@ -80,6 +80,31 @@ def show_product(request, mats, val):
             'details': Textile_Craft.objects.get(id=val),
             'logged_user': Users.objects.get(id=request.session['userid']),
         }
+    if mats == "Metal_Craft":
+        context ={
+            'details': Metal_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
+    if mats == "Leather_Craft":
+        context ={
+            'details': Leather_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
+    if mats == "Wood_Craft":
+        context ={
+            'details': Wood_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
+    if mats == "Jewelry_Craft":
+        context ={
+            'details': Jewelry_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
+    if mats == "Digital_Craft":
+        context ={
+            'details': Digital_Craft.objects.get(id=val),
+            'logged_user': Users.objects.get(id=request.session['userid']),
+        }
     return render(request, 'show_product.html', context)
 # -----------User account logic----------- 
 def add_address(request):

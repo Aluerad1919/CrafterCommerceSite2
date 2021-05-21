@@ -1,65 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles_show_product.css' %}">
-    <title>Crafter Mall</title>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <h1>Mall of the Crafters</h1>
-            <!-- if logged in show Username with a tag and drop down menu -->
-            {%if logged_user.id > 0 %}
-            <p>Welcome, </p>
-            <div class="user_drop_menu">
-                <button class="user_menu_btn">{{logged_user.user_name}}</button>
-                <div class="drop_menu_options">
-                    <a href="/CrafterMall/Account/{{logged_user.id}}">Account</a>
-                    <a href="/CrafterMall/{{logged_user.id}}/Store_Front">Store Front</a>
-                    <a href="/logout">Logout</a>
-                </div>
-            </div>
-                {%else%}
-            <form action="log" method="post">
-                {% csrf_token %}
-                <input type="text" name="username_input" placeholder="Username">
-                <input type="password" name="pw_input" placeholder="Password">
-                <button type="submit">Log in</button>
-            </form>
-            <p> <a href="/CrafterMall/Signup">Register</a> </p>
-            {%endif%}
-<!-- need to add a cart function -->
-        </header>
-        <nav>
-<!-- Navigation bar 
-            topics: Crafts, Commissions... more to come -->
-            <ul>
-                <li><a href="Textile">Textile</a></li>
-                <li><a href="Leather">Leather Work</a></li>
-                <li><a href="Metal">Metal Work</a></li>
-                <li><a href="Jewelry">Jewelry</a></li>
-                <li><a href="Carpentry">Carpentry</a></li>
-                <li><a href="Digital">Digital Art</a></li>
-            </ul>
-            
-            <!-- Search bar to file through  -->
-            <div class="searchbar">
-                <input type="text" placeholder="Search">
-                <button type="submit">Find</button>
-            </div>
-        </nav>
-        <!-- show the indevidual product -->
-        <div class="craft">
-            <div class="craftImg">
-                <img src="{{MEDIA_URL}}{{details.craft_image}}" alt="Broken image">
-            </div>
-            <h3>{{details.craft_name}}</h3>
-            <p>{{details.description}}</p>
+{%extends 'base.html'%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles_show_product.css' %}">
+{%block content%}
+    <div class="craft">
+        <div class="craftImg">
+            <img src="{{MEDIA_URL}}{{details.craft_image}}" alt="Broken image">
         </div>
+        <div class="craftdetails">
+            <h3>{{details.craft_name}}</h3>
+            <h4>${{details.price}}</h4>
+            <p>{{details.description}}</p>
+            <p>Made By <a href="">{{details.seller.user_name}}</a></p>
+            {% if item.in_stock_num != 0 %}
+            <p>{{details.in_stock_num}} avalible</p>
+            {%else%}
+            <p>Out of Stock</p>
+            {%endif%}
+            {% if details.on_order == True %}
+            <p>Made to Order</p>
+            {%endif%}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
     </div>
-</body>
-</html>
+</div>
+{%endblock%}

@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% load static %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles_open_store.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    <div class="wrapper">
-        <h4>Open a store?</h4>
-        <p>To open a store you'll need to confirm a store front name.</p>
-        <form action="/opening_store/{{shop_stall.id}}" method="post">
-            {% csrf_token %}
-            <input type="text" name="st_name_input" value="{{shop_stall.user_name}}'s Store">
-            <button type="submit">Open store</button>
-        </form>
-        <a class="cancel_button" href="/">Cancel</a>
-    </div>
-</body>
-</html>
+{%extends 'base.html'%}
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%block content%}
+<div class="wrapper">
+    <h4>Open a store?</h4>
+    <p>To open a store you'll need to confirm a store front name.</p>
+    <form action="/opening_store/{{shop_stall.id}}" method="post">
+        {% csrf_token %}
+        <input type="text" name="st_name_input" value="{{shop_stall.user_name}}'s Store">
+        <button type="submit">Open store</button>
+    </form>
+    <a class="cancel_button" href="/">Cancel</a>
+</div>
+{%endblock%}
