@@ -23,7 +23,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_cloth/{{item.id}}">delete</a>
                     {% endif %}
@@ -46,7 +46,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_leather/{{item.id}}">delete</a>
                     {% endif %}
@@ -69,7 +69,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_metal/{{item.id}}">delete</a>
                     {% endif %}
@@ -92,7 +92,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_wood/{{item.id}}">delete</a>
                     {% endif %}
@@ -115,7 +115,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_jewel/{{item.id}}">delete</a>
                     {% endif %}
@@ -138,7 +138,7 @@
                     <div class="desc_block"> 
                         <p>{{item.description}}</p> 
                     </div>
-                    {%if logged_user == shop_stall.id %}
+                    {%if logged_user.id == shop_stall.id %}
                         <a href="">Edit</a>
                         <a href="/delete_digi/{{item.id}}">delete</a>
                     {% endif %}
@@ -147,7 +147,7 @@
         </div>
 
         <!-- if user's is on own page -->
-        {%if logged_user == shop_stall.id %}
+        {%if logged_user.id == shop_stall.id %}
         <!-- <a href="">edit</a> -->
         <a href="/CrafterMall/{{shop_stall.id}}/Add_a_Craft">Add a product</a>
         {%endif%}

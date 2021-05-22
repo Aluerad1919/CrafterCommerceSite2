@@ -18,11 +18,10 @@
                             <p>Made by {{item.seller.user_name}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
+                            {% elif item.on_order == True %}
+                            <p>Made to Order</p>
                             {%else%}
                             <p>Out of Stock</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
-                            <p>Made to Order</p>
                             {%endif%}
                         </div>
                     </div>
@@ -43,11 +42,10 @@
                             <p>Made by {{item.seller.user_name}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
+                            {% elif item.on_order == True %}
+                            <p>Made to Order</p>
                             {%else%}
                             <p>Out of Stock</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
-                            <p>Made to Order</p>
                             {%endif%}
                         </div>
                     </div>
@@ -68,11 +66,10 @@
                             <p>Made by {{item.seller.user_name}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
+                            {% elif item.on_order == True %}
+                            <p>Made to Order</p>
                             {%else%}
                             <p>Out of Stock</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
-                            <p>Made to Order</p>
                             {%endif%}
                         </div>
                     </div>
@@ -93,11 +90,10 @@
                             <p>{{item.description}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
+                            {% elif item.on_order == True %}
+                            <p>Made to Order</p>
                             {%else%}
                             <p>Out of Stock</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
-                            <p>Made to Order</p>
                             {%endif%}
                         </div>
                     </div>
@@ -118,11 +114,10 @@
                             <p>{{item.description}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
+                            {% elif item.on_order == True %}
+                            <p>Made to Order</p>
                             {%else%}
                             <p>Out of Stock</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
-                            <p>Made to Order</p>
                             {%endif%}
                         </div>
                     </div>
@@ -143,11 +138,9 @@
                             <p>{{item.description}}</p>
                             {% if item.in_stock_num != 0 %}
                             <p>{{item.in_stock_num}} avalible</p>
-                            {%endif%}
-                            {% if item.on_order == True %}
+                            {% elif item.on_order == True %}
                             <p>Made to Order</p>
-                            {%endif%}
-                            {%if item.in_stock_num and item.on_order == False%}
+                            {%else%}
                             <p>Out of Stock</p>
                             {%endif%}
                         </div>

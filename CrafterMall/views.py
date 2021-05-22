@@ -53,7 +53,7 @@ def store_front(request, val):
     clerk = Users.objects.get(id=val)
     context = {
         'shop_stall': Users.objects.get(id=val),
-        'logged_user': request.session['userid'],
+        'logged_user': Users.objects.get(id=request.session['userid']),
         'cloth_db': Textile_Craft.objects.filter(seller=Users.objects.get(id=val)),
         'leather_db': Leather_Craft.objects.filter(seller=Users.objects.get(id=val)),
         'metal_db': Metal_Craft.objects.filter(seller=Users.objects.get(id=val)),

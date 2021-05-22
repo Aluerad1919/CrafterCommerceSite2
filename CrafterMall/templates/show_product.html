@@ -11,13 +11,12 @@
             <h4>${{details.price}}</h4>
             <p>{{details.description}}</p>
             <p>Made By <a href="">{{details.seller.user_name}}</a></p>
-            {% if item.in_stock_num != 0 %}
+            {% if details.in_stock_num != 0 %}
             <p>{{details.in_stock_num}} avalible</p>
+            {% elif details.on_order == True %}
+            <p>Made to Order</p>
             {%else%}
             <p>Out of Stock</p>
-            {%endif%}
-            {% if details.on_order == True %}
-            <p>Made to Order</p>
             {%endif%}
         </div>
         <form action="" method="post">
